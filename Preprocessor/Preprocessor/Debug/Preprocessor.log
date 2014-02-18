@@ -1,0 +1,20 @@
+﻿Build started 18/02/2014 12:53:35.
+     1>Project "c:\Users\User\documents\visual studio 2013\Projects\Preprocessor\Preprocessor\Preprocessor.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\user\documents\visual studio 2013\projects\preprocessor\preprocessor\vars.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\user\documents\visual studio 2013\projects\preprocessor\preprocessor\vars.h(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2132): error C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2113) : see declaration of 'std::_Copy_impl'
+                 c:\users\user\documents\visual studio 2013\projects\preprocessor\preprocessor\main.cpp(32) : see reference to function template instantiation '_OutIt std::copy<std::_String_iterator<std::_String_val<std::_Simple_types<char>>>,char*>(_InIt,_InIt,_OutIt)' being compiled
+                 with
+                 [
+                     _OutIt=char *
+         ,            _InIt=std::_String_iterator<std::_String_val<std::_Simple_types<char>>>
+                 ]
+     1>Done Building Project "c:\Users\User\documents\visual studio 2013\Projects\Preprocessor\Preprocessor\Preprocessor.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.40
