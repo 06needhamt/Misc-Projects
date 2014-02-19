@@ -27,23 +27,16 @@ int main(int argc, char* argv[])
 
 void includepreprocess()
 {
-	/*const char* cinputfile = inputfile; */
-	std::string line;
-
-	char* cline = new char[line.size() + 1];
-	inputstream.open(inputfile, 'r');
-	outputstream.open(outputfile, 'w');
-	//std::copy(line.begin(), line.end(), cline);
-	//cline[line.size() + 1] = '\0';
-	while (getline(inputstream, line))
-	{
-		std::copy(line.begin(), line.end(), cline);
-		std::cout << cline << std::endl;
-		outputstream.write(cline, 'w');
-	}
-	inputstream.close();
+	
+	inputstream.seekg(0, inputstream.end);
+	inputstream.seekg(inputstream.beg,0);
+	long long size = inputstream.tellg();
+	char* buffer = new char[size];
+	inputstream.read(buffer, size);
+	outputstream.write(buffer,size);
+	delete[] buffer;
 	outputstream.close();
-	system("PAUSE");
-	delete[] cline;
+	inputstream.close();
+	return;
 
 }

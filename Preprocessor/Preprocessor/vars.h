@@ -15,9 +15,9 @@
 std::string inputfile;
 std::string outputfile;
 std::string currentdirectory;
-std::ifstream inputstream;
-std::ofstream outputstream;
-char* buffer[100];
+std::fstream inputstream;
+std::fstream outputstream;
+//char* buffer[1];
 
 
 
