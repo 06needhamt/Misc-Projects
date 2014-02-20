@@ -3,8 +3,20 @@
 #include<string>
 #include<fstream>
 #include"vars.h"
+//#include"Preprocessing.h"
+#ifndef std::vector
+#include <vector>
+#else
+#pragma warning Vector is already included
+#endif // !std::vector
 
-void includepreprocess(void);
+
+
+void OpenFile(void);
+void include(void);
+std::vector<std::string> split(void);
+void writecontentsofincludedfile(std::string line);
+
 int main(int argc, char* argv[])
 {
 	if (argc >= 3)
@@ -14,7 +26,9 @@ int main(int argc, char* argv[])
 		std::cout << argv[2] << std::endl;
 		inputfile = argv[1];
 		outputfile = argv[2];
-		includepreprocess();
+		OpenFile();
+		system("PAUSE");
+		return 0;
 	}
 	else
 	{
@@ -22,21 +36,62 @@ int main(int argc, char* argv[])
 		system("PAUSE");
 		return -1;
 	}
-	return 0;
 }
 
-void includepreprocess()
+void OpenFile()
 {
 	
 	inputstream.seekg(0, inputstream.end);
-	inputstream.seekg(inputstream.beg,0);
-	long long size = inputstream.tellg();
-	char* buffer = new char[size];
+	std::cout << inputstream.tellg();
+	inputstream.seekg(inputstream.beg, 0);
 	inputstream.read(buffer, size);
+	split();
 	outputstream.write(buffer,size);
 	delete[] buffer;
 	outputstream.close();
 	inputstream.close();
+	std::cout << "Preprocessing is complete" << std::endl;
 	return;
 
+}
+
+void writecontentsofincludedfile(std::string line)
+{
+	std::ifstream inputstream2;
+	std::ofstream outputstream2;
+
+	long size2 = line.size();
+	char* aline = new char[size2];
+	inputstream2.open(aline, 'r');
+	inputstream.read(aline, size);
+	inputstream2.seekg(inputstream2.beg, inputstream2.end);
+	inputstream2.seekg(inputstream2.beg, 0);
+	long sizeoffile = inputstream2.tellg();
+	char* file = new char[sizeoffile];
+	inputstream2.read(aline, sizeoffile);
+	outputstream.open(inputfile, 'w');
+	outputstream2.write(file, size);
+	return;
+}
+
+std::vector <std::string> split()
+{
+	std::vector<std::string> elems;
+	inputstream.read(buffer, 1);
+	for (int i = 0; i < size; i++)
+	{
+		inputstream.read(&buffer[i], 1);
+		if (buffer[i] == '#')
+		{
+			std::string line;
+
+			const char delim = '\n';
+			while (std::getline(inputstream.read(buffer, size), line, delim));
+			{
+				elems.push_back(line);
+			}
+			writecontentsofincludedfile(line);
+		}
+	}
+	return elems;
 }

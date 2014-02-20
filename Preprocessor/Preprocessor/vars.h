@@ -9,16 +9,16 @@
 #ifndef std::ifstream || std::ofstream
 #include<fstream>
 #else
-#pragma warning "fstream is always included"
+#pragma warning "fstream is aready included"
 #endif
 
 std::string inputfile;
 std::string outputfile;
 std::string currentdirectory;
-std::fstream inputstream;
-std::fstream outputstream;
+std::ifstream inputstream;
+std::ofstream outputstream;
+long size = inputstream.tellg();
+char* buffer = new char[size];
 //char* buffer[1];
-
-
 
 #endif
