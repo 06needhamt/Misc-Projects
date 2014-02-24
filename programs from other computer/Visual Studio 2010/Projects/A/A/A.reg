@@ -1,0 +1,33 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+HKEY_CLASSES_ROOT\.TOM = A.Document
+HKEY_CLASSES_ROOT\A.Document\shell\open\command = A.EXE %1
+HKEY_CLASSES_ROOT\A.Document\shell\open\ddeexec = [open("%1")]
+HKEY_CLASSES_ROOT\A.Document\shell\open\ddeexec\application = A
+    ; note: the application is optional
+    ;  (it defaults to the app name in "command")
+
+HKEY_CLASSES_ROOT\A.Document = A.Document
+
+
+HKEY_CLASSES_ROOT\A.Document\protocol\StdFileEditing\server = A.EXE
+HKEY_CLASSES_ROOT\A.Document\protocol\StdFileEditing\verb\0 = &Edit
+HKEY_CLASSES_ROOT\A.Document\Insertable =
+HKEY_CLASSES_ROOT\A.Document\CLSID = {2CF54915-16DA-4AF3-918F-5C6C64938BF7}
+
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7} = A.Document
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\DefaultIcon = A.EXE,1
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\LocalServer32 = A.EXE
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\ProgId = A.Document
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\MiscStatus = 32
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\AuxUserType\3 = A
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\AuxUserType\2 = A
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\Insertable = 
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\verb\1 = &Open,0,2
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\verb\0 = &Edit,0,2
+HKEY_CLASSES_ROOT\CLSID\{2CF54915-16DA-4AF3-918F-5C6C64938BF7}\InprocHandler32 = ole32.dll
+

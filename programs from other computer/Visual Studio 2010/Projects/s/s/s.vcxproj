@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A16FD398-6F6E-4223-A474-FFD1BEE0311C}</ProjectGuid>
+    <RootNamespace>s</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lapi.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lauxlib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lbaselib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lbitlib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lcode.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lcorolib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lctype.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ldblib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ldebug.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ldo.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ldump.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lfunc.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lgc.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\linit.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\liolib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\llex.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lmathlib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lmem.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\loadlib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lobject.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lopcodes.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\loslib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lparser.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lstate.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lstring.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lstrlib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ltable.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ltablib.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ltm.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lua.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\luac.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lundump.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lvm.c" />
+    <ClCompile Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lzio.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lapi.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lauxlib.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lcode.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lctype.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ldebug.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ldo.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lfunc.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lgc.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\llex.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\llimits.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lmem.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lobject.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lopcodes.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lparser.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lstate.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lstring.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ltable.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\ltm.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lua.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lua.hpp" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\luaconf.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lualib.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lundump.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lvm.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\lua-5.2.1\src\lzio.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

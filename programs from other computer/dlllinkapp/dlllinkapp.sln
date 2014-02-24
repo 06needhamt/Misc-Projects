@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dlllinkapp", "dlllinkapp\dlllinkapp.vcxproj", "{BCF5A18C-1412-444F-9AD7-C86B96A12435}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dlllinkdll", "dlllinkdll\dlllinkdll.vcxproj", "{F2325378-81D0-4970-AD47-DEC676F6D895}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCF5A18C-1412-444F-9AD7-C86B96A12435}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BCF5A18C-1412-444F-9AD7-C86B96A12435}.Debug|Win32.Build.0 = Debug|Win32
+		{BCF5A18C-1412-444F-9AD7-C86B96A12435}.Release|Win32.ActiveCfg = Release|Win32
+		{BCF5A18C-1412-444F-9AD7-C86B96A12435}.Release|Win32.Build.0 = Release|Win32
+		{F2325378-81D0-4970-AD47-DEC676F6D895}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F2325378-81D0-4970-AD47-DEC676F6D895}.Debug|Win32.Build.0 = Debug|Win32
+		{F2325378-81D0-4970-AD47-DEC676F6D895}.Release|Win32.ActiveCfg = Release|Win32
+		{F2325378-81D0-4970-AD47-DEC676F6D895}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

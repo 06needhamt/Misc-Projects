@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SlotMachine", "..\..\SlotMachine\SlotMachine\SlotMachine.vbproj", "{2E54A12E-DB51-458E-87C5-5C19E85B9C70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E54A12E-DB51-458E-87C5-5C19E85B9C70}.Debug|x86.ActiveCfg = Debug|x86
+		{2E54A12E-DB51-458E-87C5-5C19E85B9C70}.Debug|x86.Build.0 = Debug|x86
+		{2E54A12E-DB51-458E-87C5-5C19E85B9C70}.Release|x86.ActiveCfg = Release|x86
+		{2E54A12E-DB51-458E-87C5-5C19E85B9C70}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

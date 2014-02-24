@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFC", "MFC\MFC.vcxproj", "{68F8AB76-F869-45B4-83A9-10A7B5A70CEF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Modify MFC", "..\Modify MFC\Modify MFC\Modify MFC.vcxproj", "{4A7C6814-6C07-49FD-B6D2-A7A39A2519C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68F8AB76-F869-45B4-83A9-10A7B5A70CEF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68F8AB76-F869-45B4-83A9-10A7B5A70CEF}.Debug|Win32.Build.0 = Debug|Win32
+		{68F8AB76-F869-45B4-83A9-10A7B5A70CEF}.Release|Win32.ActiveCfg = Release|Win32
+		{68F8AB76-F869-45B4-83A9-10A7B5A70CEF}.Release|Win32.Build.0 = Release|Win32
+		{4A7C6814-6C07-49FD-B6D2-A7A39A2519C9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4A7C6814-6C07-49FD-B6D2-A7A39A2519C9}.Debug|Win32.Build.0 = Debug|Win32
+		{4A7C6814-6C07-49FD-B6D2-A7A39A2519C9}.Release|Win32.ActiveCfg = Release|Win32
+		{4A7C6814-6C07-49FD-B6D2-A7A39A2519C9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

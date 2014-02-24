@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "parcel price", "parcel price\parcel price.csproj", "{9A252041-C92B-4306-BA70-98CA52C5C631}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A252041-C92B-4306-BA70-98CA52C5C631}.Debug|x86.ActiveCfg = Debug|x86
+		{9A252041-C92B-4306-BA70-98CA52C5C631}.Debug|x86.Build.0 = Debug|x86
+		{9A252041-C92B-4306-BA70-98CA52C5C631}.Release|x86.ActiveCfg = Release|x86
+		{9A252041-C92B-4306-BA70-98CA52C5C631}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
