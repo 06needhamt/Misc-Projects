@@ -1,0 +1,6 @@
+// with std::operator<<(std::cout, "Hello World \n");  the supposedly faster one
+2600000 ns
+
+std::cout << "Hello World" << std::endl;		//the supposedly slower one
+
+15600000 ns
