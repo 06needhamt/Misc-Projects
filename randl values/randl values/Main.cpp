@@ -49,7 +49,7 @@ public:
 
 };
 
-int main(int argc, char* argv[])
+int main2(int argc, char* argv[])
 {
 	int i = 1; // create an int lvalue i from the r value 1
 	int& j = i; // create anb int lvalue reference from the lvalue i
