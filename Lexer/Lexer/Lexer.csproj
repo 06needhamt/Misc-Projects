@@ -43,11 +43,14 @@
   <ItemGroup>
     <Compile Include="EnumKeywords.cs" />
     <Compile Include="EnumOperators.cs" />
+    <Compile Include="EnumTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="test.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="test.txt.lex" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

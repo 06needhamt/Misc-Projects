@@ -19,5 +19,7 @@
     CLASS = 16,
     ENUM = 17,
     INTERFACE = 18,
+    STATIC = 19,
+    VOID = 20,
     
 }
