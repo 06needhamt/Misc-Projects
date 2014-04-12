@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Lexer
 {
-    class TypeMismatchException : Exception 
+    [Serializable]
+    public class TypeMismatchException : Exception 
     {
         public TypeMismatchException()
         {

@@ -9,7 +9,7 @@ namespace Lexer
     
     public class Tree<T1, T2, T3> : Branch<T1, T2>
     {
-        protected List<Branch<T1, T2>> treebranches = new List<Branch<T1, T2>>(0);
+        public List<Branch<T1, T2>> treebranches = new List<Branch<T1, T2>>(0);
         public ulong depth = 0;
         public Tree()
         {

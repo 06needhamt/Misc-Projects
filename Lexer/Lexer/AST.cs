@@ -8,9 +8,14 @@ namespace Lexer
 {
     public class AST<T1,T2,T3,T4> : Tree<T1,T2,T3>
     {
-        Branch<T1,T2> root = new Branch<T1,T2>(Program.pubtokens);
+        //Branch<T1,T2> root = new Branch<T1,T2>(Program.pubtokens);
+        ASTBranch<T1, T2,T3> root = new ASTBranch<T1, T2,T3>(Program.pubtokens,new AST<T1,T2,object,object>());
 
-        protected void seroot(Branch<T1,T2> newroot)
+        public AST()
+        {
+
+        }
+        protected void seroot(ASTBranch<T1,T2,T3> newroot)
         {
             if (newroot.parent != null)
             {

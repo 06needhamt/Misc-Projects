@@ -288,7 +288,7 @@ namespace Lexer
                 else if (!System.Text.RegularExpressions.Regex.IsMatch(tokens[i], "([0-9])"))
                 {
                     Console.WriteLine("Tokens i =  " + tokens[i]);
-                    if (tokens[0].Equals(EnumKeywords.PRIVATE.ToString().ToLower()) || tokens[0].Equals(EnumKeywords.PUBLIC.ToString().ToLower()) || tokens[0].Equals(EnumKeywords.PROTECTED.ToString().ToLower()))
+                    if ((tokens[0].Equals(EnumKeywords.PRIVATE.ToString().ToLower()) || tokens[0].Equals(EnumKeywords.PUBLIC.ToString().ToLower()) || tokens[0].Equals(EnumKeywords.PROTECTED.ToString().ToLower())) /*&& !isvardeclared(ref tokens,ref i)*/)
                     {
                         defineVariable(ref tokens, ref i);
                         continue;

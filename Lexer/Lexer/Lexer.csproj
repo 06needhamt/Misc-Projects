@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AST.cs" />
+    <Compile Include="ASTBranch.cs" />
     <Compile Include="Branch.cs" />
     <Compile Include="EnumAccessModifiers.cs" />
     <Compile Include="EnumKeywords.cs" />
