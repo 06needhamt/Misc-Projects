@@ -8,6 +8,7 @@ namespace CSharpToNative
 {
     public enum EnumTypes
     {
+        NO_TYPE = -1,
         INT = 0,
         STRING = 1,
         BOOL = 2,

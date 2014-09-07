@@ -26,7 +26,16 @@ namespace CSharpToNative
         }
         public ASTBranch(string[] tokens, AST<T1, T2, T3, T4> tree)
         {
-            this.protectionlevel = (EnumAccessModifiers)Convert.ToInt32(tokens[0]);
+            if ((int)EnumAccessModifiers.PRIVATE != Convert.ToInt32(tokens[0]) && (int)EnumAccessModifiers.PROTECTED != Convert.ToInt32(tokens[0]) && (int)EnumAccessModifiers.PUBLIC != Convert.ToInt32(tokens[0]))
+            {
+                this.protectionlevel = EnumAccessModifiers.NO_MODIFIER;
+            }
+            else
+            {
+                this.protectionlevel = (EnumAccessModifiers)Convert.ToInt32(tokens[0]);
+            }
+
+            
             this.type = ((EnumTypes)Convert.ToInt32(tokens[1]));
             this.name = tokens[2];
             this.Value = tokens[4];

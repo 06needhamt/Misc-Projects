@@ -66,7 +66,8 @@ namespace CSharpToNative
                     continue;
                 }
             }
-            return null;
+            return null; 
+            /*new String(new char[]  { 'n','o',' ','r','o','o','t' });*/
         }
     }
 }
