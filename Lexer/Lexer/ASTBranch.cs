@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lexer
 {
-    public class ASTBranch<T1,T2,T3> : Branch<T1,T2>
+    public class ASTBranch<T1,T2,T3,T4> : Branch<T1,T2>
     {
         bool isroot = false;
+        //static Type T4;
         public ASTBranch()
         {
             try
@@ -23,7 +24,7 @@ namespace Lexer
                 Console.ResetColor();
             }
         }
-        public ASTBranch(string[] tokens,AST<T1,T2,object,object> tree)
+        public ASTBranch(string[] tokens,AST<T1,T2,T3,T4> tree)
         {
             this.protectionlevel = (EnumAccessModifiers)Convert.ToInt32(tokens[0]);
             this.type = ((EnumTypes)Convert.ToInt32(tokens[1]));

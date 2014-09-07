@@ -8,14 +8,20 @@ namespace Lexer
 {
     public class AST<T1,T2,T3,T4> : Tree<T1,T2,T3>
     {
+        
         //Branch<T1,T2> root = new Branch<T1,T2>(Program.pubtokens);
-        ASTBranch<T1, T2,T3> root = new ASTBranch<T1, T2,T3>(Program.pubtokens,new AST<T1,T2,object,object>());
-
+        //AST<T1,T2,T3,T4> def = new AST<T1,T2,T3,T4>();
+        ASTBranch<T1, T2,T3,T4> root;
+        ASTBranch<T1,T2,T3,T4> leftchild;
+        ASTBranch<T1,T2,T3,T4> rightchild;
         public AST()
         {
-
+            
+            root = new ASTBranch<T1, T2, T3,T4>(Program.pubtokens, this);
+            leftchild = new ASTBranch<T1, T2, T3, T4>(Program.pubtokens, this);
+            rightchild = new ASTBranch<T1, T2, T3, T4>(Program.pubtokens, this);
         }
-        protected void seroot(ASTBranch<T1,T2,T3> newroot)
+        protected void seroot(ASTBranch<T1,T2,T3,T4> newroot)
         {
             if (newroot.parent != null)
             {
@@ -46,6 +52,21 @@ namespace Lexer
                     Environment.Exit(-1);
                 }
             }
+        }
+        protected ASTBranch<T1,T2,T3,T4> getroot(AST<T1,T2,T3,T4> tree)
+        {
+            foreach(ASTBranch<T1,T2,T3,T4> branch in tree.treebranches)
+            {
+                if(branch.parent.Equals(null))
+                {
+                    return branch;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return null;
         }
     }
 }
