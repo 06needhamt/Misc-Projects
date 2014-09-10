@@ -18,6 +18,7 @@ namespace CSharpToNative
             public string name;
             public EnumTypes type;
             public EnumAccessModifiers protectionlevel;
+            public EnumOperator operation;
             public object Value;
             public Branch<T1, T2> parent = null;
             ///public long depth;

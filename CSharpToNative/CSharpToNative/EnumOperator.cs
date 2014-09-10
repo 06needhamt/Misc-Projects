@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpToNative
 {
-    enum EnumOperator
+    public enum EnumOperator
     {
+        NO_OPERATOR = -1,
         ASSIGNMEMT = 0,
         EQUALITY = 1,
         NOT_EQUAL = 2,

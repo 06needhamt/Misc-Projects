@@ -43,6 +43,7 @@ namespace CSharpToNative
             writer.Close();
             writer.Dispose();
             Console.WriteLine("Lexical Analasis Complete");
+            Console.WriteLine("Press Any Key To Exit");
             Console.ReadKey();
         }
 
