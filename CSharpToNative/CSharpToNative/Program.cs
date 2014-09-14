@@ -16,6 +16,7 @@ namespace CSharpToNative
         private static string currentdir = System.Environment.CurrentDirectory + "/";
         static void Main(string[] args)
         {
+            DefineTest.run();
              //outloc = args[0] + ".lex";
             //Console.WriteLine(EnumKeywords.PUBLIC.ToString());
             //Console.ReadKey();
@@ -46,6 +47,8 @@ namespace CSharpToNative
             Console.WriteLine("Press Any Key To Exit");
             Console.ReadKey();
         }
+
+       
 
 
     }
