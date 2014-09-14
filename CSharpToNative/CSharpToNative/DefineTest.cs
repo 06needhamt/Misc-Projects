@@ -17,7 +17,7 @@ namespace CSharpToNative
             dynamic stringa = DefineVariable("Hello World");
             dynamic longa = DefineVariable(25L);
             dynamic floata = DefineVariable(17.5F);
-            dynamic datea = DefineVariable(new DateTime(2014, 01, 01));
+            dynamic datea = DefineVariable(new DateTime(DateTime.Now.Year, DateTime.Now.Month ,DateTime.Now.Day ,DateTime.Now.Hour ,DateTime.Now.Minute, DateTime.Now.Second)); 
             Console.WriteLine(inta);
             Console.WriteLine(boola);
             Console.WriteLine(doublea);
@@ -26,7 +26,7 @@ namespace CSharpToNative
             Console.WriteLine(longa);
             Console.WriteLine(floata);
             Console.WriteLine(datea);
-            
+            //Console.ReadKey();
         }
         private static dynamic DefineVariable(Object val = null)
         {
