@@ -66,38 +66,11 @@ namespace CSharpToNative
                     continue;
                 }
             }
-            return null; 
+            return null;
             /*new String(new char[]  { 'n','o',' ','r','o','o','t' });*/
-        }
-        protected bool executebranch(ASTBranch<T1,T2,T3,T4> branch)
-        {
-            string varname = branch.name;
-            EnumTypes type = branch.type;
-            EnumOperator operation = branch.operation;
-            Object value = branch.Value;
-            if(IsNumerical(type))
-            {
-                CreateInstruction(type,operation,varname,value);
-            }
-            return false;
-        }
-
-        private void CreateInstruction(EnumTypes Type , EnumOperator operation , string name, Object val)
-        {
-            DefineVariable(type,name,null);
-        }
-
-        private static dynamic DefineVariable(EnumTypes Type, string name, Object val = null)
-        {
-           // System.Type var = val.GetType();
-            dynamic memory = val;
-            return memory;
-        }
-
-        private bool IsNumerical(EnumTypes Type)
-        {
-            int[] numericaltypes = { 0, 3, 4, 5, 6, 9, 11 };
-            return (numericaltypes.Contains<int> (Convert.ToInt32(Type)));
         }
     }
 }
+       
+
+        
