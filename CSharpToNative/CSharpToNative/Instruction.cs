@@ -13,13 +13,16 @@ namespace CSharpToNative
 
         Instruction(int opcode, string[] operands)
         {
-            this.Opcode = opcode;
+            string hexop = this.Opcode.ToString("X");
+
+            this.Opcode = int.Parse(hexop,System.Globalization.NumberStyles.HexNumber);
             this.Operands = operands;
         }
 
         Instruction(int opcode)
         {
-            this.Opcode = opcode;
+            string hexop = this.Opcode.ToString("X");
+            this.Opcode = int.Parse(hexop, System.Globalization.NumberStyles.HexNumber);
             this.Operands = null;
         }
 
@@ -46,6 +49,41 @@ namespace CSharpToNative
                  Environment.Exit(-1);
             }
                         
+        }
+        public int getOpcode()
+        {
+            return this.Opcode;
+        }
+
+        public string[] getOperands()
+        {
+            return this.Operands;
+        }
+
+        public void PrintInstruction()
+        {
+            string currentdir = System.Environment.CurrentDirectory + "/";
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(currentdir + "instruction.asm", true);
+            writer.Write(" ");
+            if (this.Operands.Length != 0)
+            {
+                writer.Write(this.Opcode);
+                for (int i = 0; i < this.Operands.Length; i++)
+                {
+                    writer.Write(this.Operands[i]);
+                    writer.Write(",");
+                }
+                writer.WriteLine();
+            }
+            else
+            {
+                writer.Write(this.Opcode);
+                writer.WriteLine();
+            }
+            writer.Flush();
+            writer.Close();
+            writer.Dispose();
+            return;
         }
     }
 }
