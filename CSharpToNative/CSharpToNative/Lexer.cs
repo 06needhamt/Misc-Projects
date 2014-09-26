@@ -281,6 +281,10 @@ namespace CSharpToNative
                             if (!functionsymboltable.Contains(new Tuple<string, string>(funcsplit[0], funcsplit[1])))
                             {
                                 functionsymboltable.Add(new Tuple<string, string>(funcsplit[0], funcsplit[1]));
+                                for (int j = 2; j < funcsplit.Length; j++)
+                                {
+                                    writer.Write(funcsplit[j]);
+                                }
                             }
                             else
                             {

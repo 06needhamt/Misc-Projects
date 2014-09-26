@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpToNative
 {
-    enum EnumNumericalInstructions
+    enum EnumOpcodes
     {
+        #region Arithmetic
         ADD = 1, //Integer add
         ADC = 2, //Add with carry
         SUB = 3, //Subtract
@@ -19,6 +20,13 @@ namespace CSharpToNative
         INC = 9, //Increment
         DEC = 10, //Decrement
         NEG  = 11, //Negate
-        CMP  = 12 //Compare
+        #endregion
+        #region Logic
+        CMP  = 12, //Compare
+        AND = 13, //And
+        OR = 14, //Or
+        XOR = 15, //Exclusive or
+        NOT = 16,//Not
+        #endregion
     }
 }

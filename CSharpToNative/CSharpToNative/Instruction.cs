@@ -8,25 +8,34 @@ namespace CSharpToNative
 {
     class Instruction
     {
-        int Opcode;
+        uint Opcode;
         string[] Operands;
 
-        Instruction(int opcode, string[] operands)
+        public Instruction(uint opcode, string[] operands)
         {
-            string hexop = this.Opcode.ToString("X");
-
-            this.Opcode = int.Parse(hexop,System.Globalization.NumberStyles.HexNumber);
+            this.Opcode = opcode;
+            //string hexop = Convert.ToString(this.Opcode, 16);
+            //this.Opcode = int.Parse(hexop, System.Globalization.NumberStyles.HexNumber);
+            //string binop = Convert.ToString(this.Opcode,2);
+            //this.Opcode = Convert.ToInt32(Convert.ToString(opcode, 10));
+            //Console.WriteLine(binop);
+            Console.WriteLine(this.Opcode);
             this.Operands = operands;
         }
 
-        Instruction(int opcode)
+        public Instruction(uint opcode)
         {
-            string hexop = this.Opcode.ToString("X");
-            this.Opcode = int.Parse(hexop, System.Globalization.NumberStyles.HexNumber);
+            this.Opcode = opcode;
+            //string hexop = Convert.ToString(this.Opcode, 16);
+            //this.Opcode = int.Parse(hexop, System.Globalization.NumberStyles.HexNumber);
+            //string binop = Convert.ToString(this.Opcode,2);
+            //this.Opcode = Convert.ToInt32(Convert.ToString(opcode,10));
+            //Console.WriteLine(binop);
+            Console.WriteLine(this.Opcode);
             this.Operands = null;
         }
 
-        Instruction()
+        public Instruction()
         {
             try
             {
@@ -50,7 +59,7 @@ namespace CSharpToNative
             }
                         
         }
-        public int getOpcode()
+        public uint getOpcode()
         {
             return this.Opcode;
         }
@@ -60,25 +69,82 @@ namespace CSharpToNative
             return this.Operands;
         }
 
-        public void PrintInstruction()
+        public void printAssemblyInstruction()
         {
             string currentdir = System.Environment.CurrentDirectory + "/";
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(currentdir + "instruction.asm", true);
-            writer.Write(" ");
-            if (this.Operands.Length != 0)
+            string outfile = currentdir + "Output.asm";
+            if (System.IO.File.Exists(outfile))
             {
-                writer.Write(this.Opcode);
+                System.IO.File.Delete(outfile);
+            }
+            else
+            {
+                System.IO.File.Create(outfile);
+            }
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(currentdir + "Output.asm", true);
+            //writer.Write(" ");
+            if (this.Operands != null)
+            {
+                writer.Write((EnumOpcodes)this.Opcode);
+                writer.Write(" ");
                 for (int i = 0; i < this.Operands.Length; i++)
                 {
                     writer.Write(this.Operands[i]);
-                    writer.Write(",");
+                    //if (i == 0)
+                    //{
+                    //    writer.Write(" ");
+                    //}
+                    if (i != Operands.Length - 1)
+                    {
+                        writer.Write(',');
+                    }
+                    //writer.Write(",");
                 }
                 writer.WriteLine();
             }
             else
             {
-                writer.Write(this.Opcode);
+                writer.Write((EnumOpcodes)this.Opcode);
                 writer.WriteLine();
+            }
+            writer.Flush();
+            writer.Close();
+            writer.Dispose();
+            return;
+        }
+        public void PrintBinaryInstruction()
+        {
+            string currentdir = System.Environment.CurrentDirectory + "/";
+            string outfile = currentdir + "Output.exe";
+            if (System.IO.File.Exists(outfile))
+            {
+                System.IO.File.Delete(outfile);
+            }
+            else
+            {
+                System.IO.File.Create(outfile);
+            }
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(currentdir + "Output.exe", true);
+            //writer.Write(" ");
+            if (this.Operands != null)
+            {
+                writer.Write((Convert.ToString(this.Opcode,2)));
+                writer.Write(" ");
+                for (int i = 0; i < this.Operands.Length; i++)
+                {
+                    foreach (byte b in this.Operands[i])
+                    {
+                        writer.Write(Convert.ToString(b, 2));
+                        writer.Write(" ");
+                    }
+                    //writer.Write(",");
+                }
+                //writer.WriteLine();
+            }
+            else
+            {
+                writer.Write((Convert.ToString(this.Opcode, 2)));
+                //writer.WriteLine();
             }
             writer.Flush();
             writer.Close();

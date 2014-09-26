@@ -50,8 +50,7 @@
     <Compile Include="DefineTest.cs" />
     <Compile Include="EnumAccessModifiers.cs" />
     <Compile Include="EnumKeywords.cs" />
-    <Compile Include="EnumLogicInstructions.cs" />
-    <Compile Include="EnumNumericalInstructions.cs" />
+    <Compile Include="EnumOpcodes.cs" />
     <Compile Include="EnumOperator.cs" />
     <Compile Include="EnumTypes.cs" />
     <Compile Include="Instruction.cs" />

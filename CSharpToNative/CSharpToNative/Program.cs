@@ -16,7 +16,11 @@ namespace CSharpToNative
         private static string currentdir = System.Environment.CurrentDirectory + "/";
         static void Main(string[] args)
         {
-            DefineTest.run();
+            // DefineTest.run();
+            //Instruction ins = new Instruction(15,new string[] { "eax","ecx" });
+            //ins.printAssemblyInstruction();
+            //ins.PrintBinaryInstruction();
+            //Environment.Exit(0);
              //outloc = args[0] + ".lex";
             //Console.WriteLine(EnumKeywords.PUBLIC.ToString());
             //Console.ReadKey();

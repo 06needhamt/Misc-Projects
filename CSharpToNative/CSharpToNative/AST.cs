@@ -14,6 +14,7 @@ namespace CSharpToNative
         ASTBranch<T1, T2, T3, T4> root;
         ASTBranch<T1, T2, T3, T4> leftchild;
         ASTBranch<T1, T2, T3, T4> rightchild;
+        public List<ASTBranch<dynamic, dynamic, dynamic, dynamic>> ASTbranches = new List<ASTBranch<dynamic,dynamic,dynamic,dynamic>>(1);
         public AST()
         {
 
