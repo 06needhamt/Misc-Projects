@@ -48,6 +48,8 @@ namespace CSharpToNative
             writer.Close();
             writer.Dispose();
             Console.WriteLine("Lexical Analasis Complete");
+            AST<dynamic, dynamic, dynamic, dynamic> tokentree = new AST<dynamic, dynamic, dynamic, dynamic>(Lexer.pubtokens);
+            // encountering error while creating tree
             Console.WriteLine("Press Any Key To Exit");
             Console.ReadKey();
         }

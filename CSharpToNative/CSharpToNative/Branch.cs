@@ -25,17 +25,17 @@ namespace CSharpToNative
 
             public Branch()
             {
-                try
-                {
-                    throw new InvalidOperationException("Cannot Create a branch without tokens");
-                }
-                catch (InvalidOperationException ex)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine(ex.StackTrace);
-                    Console.ResetColor();
-                }
+                //try
+                //{
+                //    throw new InvalidOperationException("Cannot Create a branch without tokens");
+                //}
+                //catch (InvalidOperationException ex)
+                //{
+                //    Console.ForegroundColor = ConsoleColor.DarkRed;
+                //    Console.WriteLine(ex.Message);
+                //    Console.WriteLine(ex.StackTrace);
+                //    Console.ResetColor();
+                //}
             }
             public Branch(string[] tokens)
             {

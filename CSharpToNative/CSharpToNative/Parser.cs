@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CSharpToNative
@@ -13,13 +14,22 @@ namespace CSharpToNative
         List<ASTBranch<dynamic, dynamic, dynamic, dynamic>> branches;
         AST<dynamic, dynamic, dynamic, dynamic> tree;
 
+        public Parser()
+        {
+
+        }
+        public Parser(AST<dynamic,dynamic,dynamic,dynamic> tree)
+        {
+            this.tree = tree;
+            this.branches = tree.ASTbranches;
+        }
         private void SetBranches()
         {
-            branches = tree.ASTbranches;
+            this.branches = this.tree.ASTbranches;
         }
         private List<ASTBranch<dynamic,dynamic,dynamic,dynamic>> GetBranches()
         {
-            return branches;
+            return this.branches;
         }
         private void CreateNumericalInstruction(EnumTypes Type , EnumOperator operation , string name, dynamic val)
         {
@@ -32,9 +42,24 @@ namespace CSharpToNative
                     {
                         for (int i = 0; i < branches.Count; i++)
                         {
-                            if (System.Text.RegularExpressions.Regex.IsMatch((string)branches.ElementAt(i).Value, "([0-9])"))
+                            if (Regex.IsMatch((string)branches.ElementAt(i).Value, "([0-9])"))
                             {
                                 ops.Add((string)branches.ElementAt(i).Value);
+                                //if(Regex.IsMatch((string)this.tree.getroot(tree).Value,"([0-9])"))
+                                //{
+                                //    ops.Add((string)this.tree.getroot(tree).Value);
+                                //}
+                                for (int j = 0; j < this.tree.ASTbranches.Count; j++)
+                                {
+                                    if (Regex.IsMatch((string) this.tree.ASTbranches.ElementAt<ASTBranch<dynamic,dynamic,dynamic,dynamic>>(j).Value, "([0-9])"))
+                                    {
+                                        ops.Add((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
+                                    }
+                                    else
+                                    {
+                                        continue;
+                                    }
+                                }
                             }
                             else
                             {

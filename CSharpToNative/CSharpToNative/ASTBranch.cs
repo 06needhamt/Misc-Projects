@@ -26,39 +26,74 @@ namespace CSharpToNative
         }
         public ASTBranch(string[] tokens, AST<T1, T2, T3, T4> tree)
         {
-            int protval = Convert.ToInt32(tokens[0]);
-            int typeval = Convert.ToInt32(tokens[1]);
-            int opval = Convert.ToInt32(tokens[2]);
-            if (protval > 2)
+            tree = new AST<T1, T2, T3, T4>();
+            EnumAccessModifiers eprotval = EnumAccessModifiers.NO_MODIFIER;
+            EnumTypes etypeval = EnumTypes.NO_TYPE;
+            EnumOperator eopval = EnumOperator.NO_OPERATOR;
+
+            if (tokens.Contains(Convert.ToString(EnumTypes.STATIC)) && tokens.Contains(Convert.ToString(EnumKeywords.VOID)))
+            {
+                //int protval = Convert.ToInt32(tokens[0]);
+                eprotval = (EnumAccessModifiers)Enum.Parse(typeof(EnumAccessModifiers), tokens[0].ToUpper());
+                //int typeval = Convert.ToInt32(tokens[1]);
+                etypeval = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper() + tokens[2].ToUpper());
+                //int opval = Convert.ToInt32(tokens[2]);
+                eopval = EnumOperator.NO_OPERATOR;
+                this.name = tokens[4];
+                this.Value = null;
+            }
+            else if (tokens.Contains(Convert.ToString(EnumTypes.STATIC)))
+            //int protval = Convert.ToInt32(tokens[0]);
+            eprotval = (EnumAccessModifiers)Enum.Parse(typeof(EnumAccessModifiers), tokens[0].ToUpper());
+            //int typeval = Convert.ToInt32(tokens[1]);
+            etypeval = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper() + "_" + tokens[2].ToUpper());
+            //int opval = Convert.ToInt32(tokens[2]);
+            eopval = EnumOperator.NO_OPERATOR; //(EnumOperator)Enum.Parse(typeof(EnumOperator), tokens[3].ToUpper());
+            this.name = tokens[4];
+            if (tokens.Length > 5)
+            {
+                this.Value = tokens[5];
+            }
+            else
+            {
+                this.Value = null;
+            }
+            
+
+            if ((int) eprotval > 2)
             {
                 this.protectionlevel = EnumAccessModifiers.NO_MODIFIER;
             }
             else
             {
-                this.protectionlevel = (EnumAccessModifiers)Convert.ToInt32(tokens[0]);
+                this.protectionlevel = (EnumAccessModifiers)Enum.Parse(typeof(EnumAccessModifiers), tokens[0].ToUpper());
             }
 
-            if (typeval > 12)
+            if ((int) etypeval > 12)
             {
                 this.type = EnumTypes.NO_TYPE;
             }
+            else if (etypeval == EnumTypes.STATIC_VOID)
+            {
+                this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper() + "_" + tokens[2].ToUpper());
+            }
             else
             {
-                this.type = (EnumTypes)Convert.ToInt32(tokens[1]);
+                this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper()); 
             }
             
-            this.name = tokens[2];
-            if (opval > 36)
+            
+            if ((int) eopval >= 36 || (int) eopval < 0)
             {
                 this.operation = EnumOperator.NO_OPERATOR;
             }
             else
             {
-                this.operation = (EnumOperator)Convert.ToInt32(tokens[3]);
+                this.operation = (EnumOperator)Enum.Parse(typeof(EnumOperator), tokens[2].ToUpper());
             }
             
-            this.Value = tokens[4];
-            if (tree.treebranches.Count.Equals(0))
+            
+            if (tree.ASTbranches.Count == 0)
             {
                 this.isroot = true;
             }
@@ -66,7 +101,7 @@ namespace CSharpToNative
             {
                 this.isroot = false;
             }
-            tree.treebranches.Add((Branch<T1, T2>)this);
+            tree.ASTbranches.Add(this);
         }
 
     }

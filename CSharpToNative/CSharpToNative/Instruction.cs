@@ -77,10 +77,7 @@ namespace CSharpToNative
             {
                 System.IO.File.Delete(outfile);
             }
-            else
-            {
-                System.IO.File.Create(outfile);
-            }
+            System.IO.File.Create(outfile);
             System.IO.StreamWriter writer = new System.IO.StreamWriter(currentdir + "Output.asm", true);
             //writer.Write(" ");
             if (this.Operands != null)
