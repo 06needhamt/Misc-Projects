@@ -43,55 +43,82 @@ namespace CSharpToNative
                 this.Value = null;
             }
             else if (tokens.Contains(Convert.ToString(EnumTypes.STATIC)))
-            //int protval = Convert.ToInt32(tokens[0]);
-            eprotval = (EnumAccessModifiers)Enum.Parse(typeof(EnumAccessModifiers), tokens[0].ToUpper());
-            //int typeval = Convert.ToInt32(tokens[1]);
-            etypeval = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper() + "_" + tokens[2].ToUpper());
-            //int opval = Convert.ToInt32(tokens[2]);
-            eopval = EnumOperator.NO_OPERATOR; //(EnumOperator)Enum.Parse(typeof(EnumOperator), tokens[3].ToUpper());
-            this.name = tokens[4];
-            if (tokens.Length > 5)
             {
-                this.Value = tokens[5];
-            }
-            else
-            {
-                this.Value = null;
-            }
-            
 
-            if ((int) eprotval > 2)
-            {
-                this.protectionlevel = EnumAccessModifiers.NO_MODIFIER;
-            }
-            else
-            {
-                this.protectionlevel = (EnumAccessModifiers)Enum.Parse(typeof(EnumAccessModifiers), tokens[0].ToUpper());
-            }
 
-            if ((int) etypeval > 12)
-            {
-                this.type = EnumTypes.NO_TYPE;
-            }
-            else if (etypeval == EnumTypes.STATIC_VOID)
-            {
-                this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper() + "_" + tokens[2].ToUpper());
-            }
-            else
-            {
-                this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper()); 
-            }
-            
-            
-            if ((int) eopval >= 36 || (int) eopval < 0)
-            {
-                this.operation = EnumOperator.NO_OPERATOR;
+                //int protval = Convert.ToInt32(tokens[0]);
+                eprotval = (EnumAccessModifiers)Enum.Parse(typeof(EnumAccessModifiers), tokens[0].ToUpper());
+                //int typeval = Convert.ToInt32(tokens[1]);
+                etypeval = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper() + "_" + tokens[2].ToUpper());
+                //int opval = Convert.ToInt32(tokens[2]);
+                eopval = EnumOperator.NO_OPERATOR; //(EnumOperator)Enum.Parse(typeof(EnumOperator), tokens[3].ToUpper());
+                this.name = tokens[4];
+                if (tokens.Length > 5)
+                {
+                    this.Value = tokens[5];
+                }
+                else
+                {
+                    this.Value = null;
+                }
             }
             else
             {
-                this.operation = (EnumOperator)Enum.Parse(typeof(EnumOperator), tokens[2].ToUpper());
+                if ((int)eprotval > 2)
+                {
+                    this.protectionlevel = EnumAccessModifiers.NO_MODIFIER;
+                }
+                else
+                {
+                    this.protectionlevel = (EnumAccessModifiers)Enum.Parse(typeof(EnumAccessModifiers), tokens[0].ToUpper());
+                }
+
+                if ((int)etypeval > 12)
+                {
+                    this.type = EnumTypes.NO_TYPE;
+                }
+                else if (etypeval == EnumTypes.STATIC_VOID)
+                {
+                    this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper() + "_" + tokens[2].ToUpper());
+                }
+
+                else if(etypeval == EnumTypes.STATIC || tokens[1].ToUpper().Equals("STATIC"))
+                {
+                    if (tokens[2].ToUpper().Equals("CONST"))
+                    {
+                        this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[3].ToUpper());
+                    }
+                    else
+                    {
+                        this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[2].ToUpper());
+                    }
+                }
+                else if (etypeval == EnumTypes.CONST || tokens[1].ToUpper().Equals("CONST"))
+                {
+                    //if (tokens[2].ToUpper().Equals("CONST"))
+                    //{
+                    //    this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[3].ToUpper());
+                    //}
+
+                    this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[2].ToUpper());
+                  
+                }
+
+                else
+                {
+                    this.type = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[1].ToUpper());
+                }
+
+
+                if ((int)eopval >= 36 || (int)eopval < 0)
+                {
+                    this.operation = EnumOperator.NO_OPERATOR;
+                }
+                else
+                {
+                    this.operation = (EnumOperator)Enum.Parse(typeof(EnumOperator), tokens[2].ToUpper());
+                }
             }
-            
             
             if (tree.ASTbranches.Count == 0)
             {

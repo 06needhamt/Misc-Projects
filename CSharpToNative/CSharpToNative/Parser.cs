@@ -22,6 +22,10 @@ namespace CSharpToNative
         {
             this.tree = tree;
             this.branches = tree.treebranches;
+            //foreach (ASTBranch<dynamic,dynamic,dynamic,dynamic> b in tree.ASTbranches)
+            //{
+            //    tree.treebranches.Add(new Branch<dynamic, dynamic>(Lexer.pubtokens));
+            //}
             foreach (Branch<dynamic, dynamic> branch in this.branches)
             {
                 if (IsNumerical(branch.type))
