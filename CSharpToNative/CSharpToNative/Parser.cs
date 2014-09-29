@@ -11,7 +11,7 @@ namespace CSharpToNative
     {
         int[] numericaltypes = { 0, 3, 4, 5, 6, 9, 11 };
         int[] alphanumericaltypes = { 1, 8 };
-        List<ASTBranch<dynamic, dynamic, dynamic, dynamic>> branches;
+        List<Branch<dynamic, dynamic>> branches;
         AST<dynamic, dynamic, dynamic, dynamic> tree;
 
         public Parser()
@@ -21,8 +21,8 @@ namespace CSharpToNative
         public Parser(AST<dynamic, dynamic, dynamic, dynamic> tree)
         {
             this.tree = tree;
-            this.branches = tree.ASTbranches;
-            foreach (ASTBranch<dynamic, dynamic, dynamic, dynamic> branch in branches)
+            this.branches = tree.treebranches;
+            foreach (Branch<dynamic, dynamic> branch in this.branches)
             {
                 if (IsNumerical(branch.type))
                 {
@@ -40,9 +40,9 @@ namespace CSharpToNative
         }
         private void SetBranches()
         {
-            this.branches = this.tree.ASTbranches;
+            this.branches = this.tree.treebranches;
         }
-        private List<ASTBranch<dynamic, dynamic, dynamic, dynamic>> GetBranches()
+        private List<Branch<dynamic, dynamic>> GetBranches()
         {
             return this.branches;
         }
