@@ -290,7 +290,8 @@ namespace CSharpToNative
                             {
                                 //functionsymboltable.Add(new Tuple<string, string>(funcsplit[0], funcsplit[1]));
                                 //Console.WriteLine(functionsymboltable.ElementAt<Tuple<string, string>>(0));
-                                writer.Write(tokens[i]);
+                                writer.Write("STRINGVALUE(" + tokens[i] + ")");
+                                
                                 continue;
                             }
 
