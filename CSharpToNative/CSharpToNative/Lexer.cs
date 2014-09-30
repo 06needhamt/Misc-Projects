@@ -9,6 +9,7 @@ namespace CSharpToNative
     class Lexer
     {
         public static string[] pubtokens;
+        public static List<string[]> pubtokenslist = new List<string[]>(0);
         private static List<string> operators = new List<string>(new string[] { "=", "!=", "==", "+", "-", "*", "/", "++#", "#++", "--#", "#--", ">", "<", ">=", "<=", "&&", "&", "||", "|", "!", "~", "^", "+=", "-=", "*=", "/=", "<<", ">>", "%=", "&=", "|=", "^=", "<<=", ">>=", "?:", ".", "," });
         private static List<string> keywords = new List<string>(new string[] { "public", "protected", "private", "const", "volatile", "unsigned", "unsafe", "new", "continue", "break", "for", "if", "else", "else if", "while", "do", "class", "enum", "interface", "private static", "void" });
         private static List<string> types = new List<string>(new string[] { "int", "string", "bool", "double", "float", "long", "short", "byte", "char", "decimal", "date", "single", "object" });
@@ -179,6 +180,7 @@ namespace CSharpToNative
             int index;
             //bool keyword = false;
             pubtokens = tokens;
+            pubtokenslist.Add(tokens);
             writer.WriteLine("START");
             for (int i = 0; i < tokens.Length; i++)
             {

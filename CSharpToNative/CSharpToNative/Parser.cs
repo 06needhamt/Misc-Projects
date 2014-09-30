@@ -12,7 +12,7 @@ namespace CSharpToNative
         int[] numericaltypes = { 0, 3, 4, 5, 6, 9, 11 };
         int[] alphanumericaltypes = { 1, 8 };
         List<Branch<dynamic, dynamic>> branches;
-        AST<dynamic, dynamic, dynamic, dynamic> tree;
+        AST<dynamic, dynamic, dynamic, dynamic> tree; /* = new AST<dynamic,dynamic,dynamic,dynamic>(null); */
 
         public Parser()
         {
