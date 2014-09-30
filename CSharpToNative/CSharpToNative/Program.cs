@@ -48,9 +48,9 @@ namespace CSharpToNative
             writer.Close();
             writer.Dispose();
             Console.WriteLine("Lexical Analasis Complete");
-            foreach (string[] token in Lexer.pubtokenslist)
+            for (int i = 0; i < Lexer.pubtokenslist.Count; i++ )
             {
-                AST<dynamic, dynamic, dynamic, dynamic> tokentree = new AST<dynamic, dynamic, dynamic, dynamic>(token);
+                AST<dynamic, dynamic, dynamic, dynamic> tokentree = new AST<dynamic, dynamic, dynamic, dynamic>(Lexer.pubtokenslist.ElementAt<string[]>(i));
                 //Parser parse = new Parser(tokentree);
             }
             

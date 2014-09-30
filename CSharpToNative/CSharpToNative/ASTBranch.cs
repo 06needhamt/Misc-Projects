@@ -26,8 +26,78 @@ namespace CSharpToNative
         }
         public ASTBranch(string[] tokens, AST<T1, T2, T3, T4> tree)
         {
+            List<string> operators = new List<string>(new string[] { "=", "!=", "==", "+", "-", "*", "/", "++#", "#++", "--#", "#--", ">", "<", ">=", "<=", "&&", "&", "||", "|", "!", "~", "^", "+=", "-=", "*=", "/=", "<<", ">>", "%=", "&=", "|=", "^=", "<<=", ">>=", "?:", ".", "," });
+            int times = 0;
+            int index = 0;
             tree = new AST<T1, T2, T3, T4>();
             EnumAccessModifiers eprotval = EnumAccessModifiers.NO_MODIFIER;
+            EnumTypes etypeval = EnumTypes.NO_TYPE;
+            EnumOperator eopval = EnumOperator.NO_OPERATOR;
+           
+            for (int i = 0; i < tokens.Length; i++)
+            {
+                if (Enum.IsDefined(typeof(EnumAccessModifiers),tokens[i].ToUpper()))
+                {
+                    eprotval = (EnumAccessModifiers) Enum.Parse(typeof(EnumAccessModifiers),tokens[i].ToUpper());
+                    
+                }
+                else if (Enum.IsDefined(typeof(EnumTypes),tokens[i].ToUpper()))
+                {
+                    etypeval = (EnumTypes)Enum.Parse(typeof(EnumTypes), tokens[i].ToUpper());
+                }
+                else if (operators.Contains(tokens[i]))
+                {
+                    
+                    for (int j = 0; j < operators.Count; j++)
+                    {
+                        if (operators[j] == tokens[i])
+                        {
+                            index = j;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    eopval = (EnumOperator) index;
+                }
+                else
+                {
+                    if (times == 0)
+                    {
+                        this.name = tokens[i];                    
+                    }
+                    else if (times == 1)
+                    {
+                        this.Value = tokens[i];
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                this.type = etypeval;
+                this.operation = eopval;
+                this.protectionlevel = eprotval;
+                Console.WriteLine(Convert.ToString(this.type));
+                Console.WriteLine(Convert.ToString(this.operation));
+                Console.WriteLine(Convert.ToString(this.protectionlevel));
+                Console.WriteLine(this.name);
+                Console.WriteLine(this.Value);
+                // Console.ReadKey();
+            }
+            
+            if (tree.ASTbranches.Count == 0)
+            {
+                this.isroot = true;
+            }
+            else
+            {
+                this.isroot = false;
+            }
+            tree.ASTbranches.Add(this); 
+
+            /* EnumAccessModifiers eprotval = EnumAccessModifiers.NO_MODIFIER;
             EnumTypes etypeval = EnumTypes.NO_TYPE;
             EnumOperator eopval = EnumOperator.NO_OPERATOR;
 
@@ -63,7 +133,7 @@ namespace CSharpToNative
                 }
             }
             else
-            {
+            { 
                 if ((int)eprotval > 2)
                 {
                     this.protectionlevel = EnumAccessModifiers.NO_MODIFIER;
@@ -117,18 +187,9 @@ namespace CSharpToNative
                 else
                 {
                     this.operation = (EnumOperator)Enum.Parse(typeof(EnumOperator), tokens[2].ToUpper());
-                }
-            }
+                }*/
             
-            if (tree.ASTbranches.Count == 0)
-            {
-                this.isroot = true;
-            }
-            else
-            {
-                this.isroot = false;
-            }
-            tree.ASTbranches.Add(this);
+           
         }
 
     }
