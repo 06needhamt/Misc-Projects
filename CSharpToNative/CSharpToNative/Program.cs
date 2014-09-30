@@ -51,7 +51,7 @@ namespace CSharpToNative
             for (int i = 0; i < Lexer.pubtokenslist.Count; i++ )
             {
                 AST<dynamic, dynamic, dynamic, dynamic> tokentree = new AST<dynamic, dynamic, dynamic, dynamic>(Lexer.pubtokenslist.ElementAt<string[]>(i));
-                //Parser parse = new Parser(tokentree);
+                Parser parse = new Parser(tokentree,ref i);
             }
             
             Console.WriteLine("Compilation Complete Press Any Key To Exit");

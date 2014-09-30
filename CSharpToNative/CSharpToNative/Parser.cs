@@ -11,17 +11,18 @@ namespace CSharpToNative
     {
         int[] numericaltypes = { 0, 3, 4, 5, 6, 9, 11 };
         int[] alphanumericaltypes = { 1, 8 };
-        List<Branch<dynamic, dynamic>> branches;
-        AST<dynamic, dynamic, dynamic, dynamic> tree = new AST<dynamic,dynamic,dynamic,dynamic>(null); 
+        List<ASTBranch<dynamic, dynamic,dynamic,dynamic>> branches;
+        AST<dynamic, dynamic, dynamic, dynamic> thetree; /* new AST<dynamic,dynamic,dynamic,dynamic>(Lexer.pubtokenslist.ElementAt<string[]>(0)); */ 
 
         public Parser()
         {
 
         }
-        public Parser(AST<dynamic, dynamic, dynamic, dynamic> tree)
+        public Parser(AST<dynamic, dynamic, dynamic, dynamic> tree, ref int i)
         {
-            this.tree = tree;
-            this.branches = tree.treebranches;
+
+            this.thetree = new AST<dynamic, dynamic, dynamic, dynamic>(Lexer.pubtokenslist.ElementAt<string[]>(i));
+            this.branches = thetree.ASTbranches;
             //foreach (ASTBranch<dynamic,dynamic,dynamic,dynamic> b in tree.ASTbranches)
             //{
             //    tree.treebranches.Add(new Branch<dynamic, dynamic>(Lexer.pubtokens));
@@ -44,9 +45,9 @@ namespace CSharpToNative
         }
         private void SetBranches()
         {
-            this.branches = this.tree.treebranches;
+            this.branches = this.thetree.ASTbranches;
         }
-        private List<Branch<dynamic, dynamic>> GetBranches()
+        private List<ASTBranch<dynamic, dynamic,dynamic,dynamic>> GetBranches()
         {
             return this.branches;
         }
@@ -68,11 +69,11 @@ namespace CSharpToNative
                                 //{
                                 //    ops.Add((string)this.tree.getroot(tree).Value);
                                 //}
-                                for (int j = 0; j < this.tree.ASTbranches.Count; j++)
+                                for (int j = 0; j < this.thetree.ASTbranches.Count; j++)
                                 {
-                                    if (Regex.IsMatch((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
+                                    if (Regex.IsMatch((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
                                     {
-                                        ops.Add((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
+                                        ops.Add((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
                                     }
                                     else
                                     {
@@ -125,11 +126,11 @@ namespace CSharpToNative
                                 //{
                                 //    ops.Add((string)this.tree.getroot(tree).Value);
                                 //}
-                                for (int j = 0; j < this.tree.ASTbranches.Count; j++)
+                                for (int j = 0; j < this.thetree.ASTbranches.Count; j++)
                                 {
-                                    if (Regex.IsMatch((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
+                                    if (Regex.IsMatch((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
                                     {
-                                        ops.Add((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
+                                        ops.Add((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
                                     }
                                     else
                                     {
@@ -185,11 +186,11 @@ namespace CSharpToNative
                                 //{
                                 //    ops.Add((string)this.tree.getroot(tree).Value);
                                 //}
-                                for (int j = 0; j < this.tree.ASTbranches.Count; j++)
+                                for (int j = 0; j < this.thetree.ASTbranches.Count; j++)
                                 {
-                                    if (Regex.IsMatch((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
+                                    if (Regex.IsMatch((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
                                     {
-                                        ops.Add((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
+                                        ops.Add((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
                                     }
                                     else
                                     {
@@ -253,11 +254,11 @@ namespace CSharpToNative
                                 //{
                                 //    ops.Add((string)this.tree.getroot(tree).Value);
                                 //}
-                                for (int j = 0; j < this.tree.ASTbranches.Count; j++)
+                                for (int j = 0; j < this.thetree.ASTbranches.Count; j++)
                                 {
-                                    if (Regex.IsMatch((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
+                                    if (Regex.IsMatch((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value, "([0-9])"))
                                     {
-                                        ops.Add((string)this.tree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
+                                        ops.Add((string)this.thetree.ASTbranches.ElementAt<ASTBranch<dynamic, dynamic, dynamic, dynamic>>(j).Value);
                                     }
                                     else
                                     {
