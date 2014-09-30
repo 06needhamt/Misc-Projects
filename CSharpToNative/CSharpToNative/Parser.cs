@@ -27,7 +27,7 @@ namespace CSharpToNative
             //{
             //    tree.treebranches.Add(new Branch<dynamic, dynamic>(Lexer.pubtokens));
             //}
-            foreach (Branch<dynamic, dynamic> branch in this.branches)
+            foreach (ASTBranch<dynamic, dynamic,dynamic,dynamic> branch in this.branches)
             {
                 if (IsNumerical(branch.type))
                 {
@@ -58,6 +58,7 @@ namespace CSharpToNative
 
             switch (operation)
             {
+                
                 case EnumOperator.UNARY_PLUS:
                     {
                         for (int i = 0; i < branches.Count; i++)
@@ -318,7 +319,21 @@ namespace CSharpToNative
         }
         private void CreateBinaryInstruction(EnumTypes Type, EnumOperator operation, string name, dynamic val)
         {
+            List<string> ops = new List<string>(0);
             DefineVariable(Type, name, null);
+            switch(operation)
+            {
+                case EnumOperator.ASSIGNMEMT:
+                    {
+                        for (int i = 0; i < branches.Count; i++)
+                        {
+                            ops.Add(this.thetree.ASTbranches.ElementAt(i).name);
+                            ops.Add((string)this.thetree.ASTbranches.ElementAt(i).Value);
+                        }
+                    }
+                    break;
+            }
+           
 
         }
         private int GetOperation(EnumOperator Operator)
