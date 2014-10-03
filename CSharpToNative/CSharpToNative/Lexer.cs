@@ -278,7 +278,7 @@ namespace CSharpToNative
                         isafunction = checkisafunction(ref tokens, ref i);
                         if (isafunction)
                         {
-                            string[] funcsplit = tokens[i].Split(new char[] { '(', ')', ' ' });
+                            string[] funcsplit = tokens[i].Split(new char[] { '(', ')'});
                             
                             if (!functionsymboltable.Contains(new Tuple<string, string>(funcsplit[0], funcsplit[1])))
                             {

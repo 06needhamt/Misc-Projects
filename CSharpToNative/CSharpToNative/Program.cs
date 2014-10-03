@@ -16,6 +16,7 @@ namespace CSharpToNative
         private static string currentdir = System.Environment.CurrentDirectory + "/";
         static void Main(string[] args)
         {
+            bool[] nullornot = new bool[10];
             // DefineTest.run();
             //Instruction ins = new Instruction(15,new string[] { "eax","ecx" });
             //ins.printAssemblyInstruction();
@@ -50,12 +51,39 @@ namespace CSharpToNative
             Console.WriteLine("Lexical Analasis Complete");
             for (int i = 0; i < Lexer.pubtokenslist.Count; i++ )
             {
+                for (int j = 0; j < Lexer.pubtokenslist.ElementAt<string[]>(i).Length; j++ )
+                {
+                    if (Lexer.pubtokenslist.ElementAt<string[]>(i)[j] == null)
+                    {
+                        nullornot[j] = true;
+                    }
+                }
+                if (checknull(nullornot))
+                {
+                    continue;
+                }
                 AST<dynamic, dynamic, dynamic, dynamic> tokentree = new AST<dynamic, dynamic, dynamic, dynamic>(Lexer.pubtokenslist.ElementAt<string[]>(i));
                 Parser parse = new Parser(tokentree,ref i);
             }
             
             Console.WriteLine("Compilation Complete Press Any Key To Exit");
             Console.ReadKey();
+        }
+
+        private static bool checknull(bool[] nullornot)
+        {
+            for (int i = 0; i < nullornot.Length; i++)
+            {
+                if (nullornot[i] != true)
+                {
+                    return true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return false;
         }
 
        

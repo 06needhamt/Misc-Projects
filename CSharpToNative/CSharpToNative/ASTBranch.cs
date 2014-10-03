@@ -33,7 +33,10 @@ namespace CSharpToNative
             EnumAccessModifiers eprotval = EnumAccessModifiers.NO_MODIFIER;
             EnumTypes etypeval = EnumTypes.NO_TYPE;
             EnumOperator eopval = EnumOperator.NO_OPERATOR;
-           
+            if (tokens == null)
+            {
+
+            }
             for (int i = 0; i < tokens.Length; i++)
             {
                 if (Enum.IsDefined(typeof(EnumAccessModifiers),tokens[i].ToUpper()))
