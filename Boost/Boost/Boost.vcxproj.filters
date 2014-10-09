@@ -18,6 +18,9 @@
     <ClInclude Include="Any.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="A.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">

@@ -18,9 +18,9 @@ namespace CSharpToNative
         {
             bool[] nullornot = new bool[10];
             // DefineTest.run();
-            //Instruction ins = new Instruction(15,new string[] { "eax","ecx" });
-            //ins.printAssemblyInstruction();
-            //ins.PrintBinaryInstruction();
+            Instruction ins = new Instruction(15, new string[] { "eax", "ecx" });
+            ins.printAssemblyInstruction();
+            ins.PrintBinaryInstruction();
             //Environment.Exit(0);
              //outloc = args[0] + ".lex";
             //Console.WriteLine(EnumKeywords.PUBLIC.ToString());
@@ -66,7 +66,8 @@ namespace CSharpToNative
                 Parser parse = new Parser(tokentree,ref i);
             }
             
-            Console.WriteLine("Compilation Complete Press Any Key To Exit");
+            Console.WriteLine("Compilation Complete");
+            Console.WriteLine("Press Any Key To Exit");
             Console.ReadKey();
         }
 

@@ -131,7 +131,7 @@ namespace CSharpToNative
                 {
                     foreach (byte b in this.Operands[i])
                     {
-                        writer.Write(Convert.ToString(b, 2));
+                        writer.Write(b);
                         writer.Write(" ");
                     }
                     //writer.Write(",");
