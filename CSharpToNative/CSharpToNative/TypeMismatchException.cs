@@ -21,7 +21,7 @@ namespace CSharpToNative
         {
             get
             {
-                return "Type Operands Do not matvh";
+                return "Type Operands Do not match";
             }
         }
         public override string ToString()

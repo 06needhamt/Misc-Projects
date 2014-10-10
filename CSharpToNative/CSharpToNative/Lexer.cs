@@ -12,7 +12,7 @@ namespace CSharpToNative
         public static List<string[]> pubtokenslist = new List<string[]>(0);
         private static List<string> operators = new List<string>(new string[] { "=", "!=", "==", "+", "-", "*", "/", "++#", "#++", "--#", "#--", ">", "<", ">=", "<=", "&&", "&", "||", "|", "!", "~", "^", "+=", "-=", "*=", "/=", "<<", ">>", "%=", "&=", "|=", "^=", "<<=", ">>=", "?:", ".", "," });
         private static List<string> keywords = new List<string>(new string[] { "public", "protected", "private", "const", "volatile", "unsigned", "unsafe", "new", "continue", "break", "for", "if", "else", "else if", "while", "do", "class", "enum", "interface", "private static", "void" });
-        private static List<string> types = new List<string>(new string[] { "int", "string", "bool", "double", "float", "long", "short", "byte", "char", "decimal", "date", "single", "object" });
+        private static List<string> types = new List<string>(new string[] { /*"const", "void","static void","static",*/"int", "string", "bool", "double", "float", "long", "short", "byte", "char", "decimal", "date", "single", "object" });
         private static string[] lines;
         private static List<EnumOperator> ops = new List<EnumOperator>(1);
         private static List<EnumKeywords> kywrds = new List<EnumKeywords>(1);
@@ -24,14 +24,21 @@ namespace CSharpToNative
         private static List<Tuple<string>> integersymboltable = new List<Tuple<string>>(1);
         private static List<Tuple<string>> stringsymboltable = new List<Tuple<string>>(1);
         private static List<Tuple<string, string>> functionsymboltable = new List<Tuple<string, string>>(1);
-
+        private static bool isbracket = false;
+        
         public static void Start(ref string[] linespar, ref int i, System.IO.StreamWriter writerpar)
         {
             lines = linespar;
             writer = writerpar;
-            if (!checkkeywords(ref i) || !checkoperators(ref i) || !checktypes(ref i))
+            if (string.IsNullOrEmpty(lines[i]) || lines[i].Equals("{") || lines[i].Equals("}"))
+            {
+                return;
+            }
+            if (!checkkeywords(ref i) && !checkoperators(ref i) && !checktypes(ref i))
             {
                 Console.Error.Write("Invalid Input");
+                Console.WriteLine(lines[i]);
+                //Console.ReadKey();
 
             }
             System.Threading.Thread.Sleep(100);
@@ -115,7 +122,7 @@ namespace CSharpToNative
         private static bool checktypes(ref int i)
         {
             int ctypes = 0;
-            for (int j = 0; j < types.Count; j++)
+            for (int j = -0; j < types.Count; j++)
             {
                 if ((lines[i].Contains(types[j])))
                 {
@@ -136,6 +143,11 @@ namespace CSharpToNative
         private static bool isvardeclared(ref string[] tokens , ref int i)
         {
             string type = tokens.FirstOrDefault<string>(j => types.Contains(j));
+            if (string.IsNullOrEmpty(tokens[i]) || tokens[i].Equals("{") || tokens[i].Equals("{"))
+            {
+                isbracket = true;
+                return true;
+            }
             if ((Object)type == null && i < tokens.Length - 1)
             {
                 int j = i;
@@ -143,10 +155,17 @@ namespace CSharpToNative
                 {
                     Console.WriteLine(tokens[m]);
                 }
-                Console.ReadKey();
+                // Console.ReadKey();
                     j++;
                 isvardeclared(ref tokens, ref j);
-
+                if (isbracket)
+                {
+                    return true;
+                }
+                if (type == null)
+                {
+                    return true;
+                }
                 if (type.Equals("string"))
                 {
                     System.Threading.Thread.Sleep(50);
@@ -343,9 +362,28 @@ namespace CSharpToNative
             else
             {
                 isafunction = checkisafunction(ref tokens, ref i);
+
                 if (isafunction)
                 {
-                    string[] funcsplit = tokens[i].Split(new char[] { '(', ')', ' ' });
+                    List<char[]> partype = new List<char[]>(0);
+                    char[] partypechararr;
+                    string[] partypearr;
+                    if (tokens.Contains<string>(EnumTypes.INT.ToString().ToLower()))
+                    {
+                        for (int j = 0; j < tokens.Length; j++)
+                        {
+                            if (tokens[j] == EnumTypes.INT.ToString().ToLower())
+                            {
+                                partypearr = tokens[i].Split(tokens,1,StringSplitOptions.RemoveEmptyEntries);
+                                foreach (string str in partypearr)
+                                {
+                                    partype.Add(str.ToCharArray());
+                                }
+                            }
+                        }
+                    }
+                    //char[] partype;
+                    string[] funcsplit = tokens[i].Split(partype.ElementAt(0));
 
                     if (!functionsymboltable.Contains(new Tuple<string, string>(funcsplit[0], funcsplit[1])))
                     {
@@ -354,7 +392,7 @@ namespace CSharpToNative
                         {
                             Console.WriteLine(funcsplit[m]);
                         }
-                        if (string.IsNullOrWhiteSpace(funcsplit[1]))
+                        if (string.IsNullOrWhiteSpace(funcsplit[0]))
                         {
                             funcsplit[1] = EnumKeywords.VOID.ToString();
                         }

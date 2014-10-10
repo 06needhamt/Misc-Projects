@@ -38,25 +38,25 @@ namespace CSharpToNative
             else
             {
                 newtree = new Tree<T1, T2, T3>();
-                newtree.depth = lhs.depth += rhs.depth;
+                newtree.depth = lhs.depth + rhs.depth;
                 newtree.name = lhs.name;
                 newtree.Value = lhs.Value;
                 newtree.type = EnumTypes.OBJECT;
                 for (int i = 0; i < lhs.treebranches.Count; i++)
                 {
                     newtree.AddBranchYToTree(lhs.treebranches.ElementAt<Branch<T1, T2>>(i));
-                    newtree.depth++;
+                    //newtree.depth++;
                 }
                 for (int j = 0; j < rhs.treebranches.Count; j++)
                 {
                     newtree.AddBranchYToTree(rhs.treebranches.ElementAt<Branch<T1, T2>>(j));
-                    newtree.depth++;
+                    //newtree.depth++;
                 }
                 return newtree;
             }
         }
 
-        protected Branch<T1, T2> GetBranch(Tree<T1,T2,T3> tree, object criteria = null)
+        protected Branch<T1, T2> GetBranch(Tree<T1,T2,T3> tree, dynamic criteria = null)
         {
             Branch<T1,T2> b = new Branch<T1,T2>(Lexer.pubtokens);
             
