@@ -121,31 +121,32 @@ namespace CSharpToNative
             {
                 System.IO.File.Create(outfile);
             }
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(currentdir + "Output.exe", true);
-            //writer.Write(" ");
-            if (this.Operands != null)
-            {
-                writer.Write((Convert.ToString(this.Opcode,2)));
-                writer.Write(" ");
-                for (int i = 0; i < this.Operands.Length; i++)
-                {
-                    foreach (byte b in this.Operands[i])
-                    {
-                        writer.Write(b);
-                        writer.Write(" ");
-                    }
-                    //writer.Write(",");
-                }
-                //writer.WriteLine();
-            }
-            else
-            {
-                writer.Write((Convert.ToString(this.Opcode, 2)));
-                //writer.WriteLine();
-            }
-            writer.Flush();
-            writer.Close();
-            writer.Dispose();
+            ELFFile elf = new ELFFile("test.o");
+            //System.IO.StreamWriter writer = new System.IO.StreamWriter(currentdir + "Output.exe", true);
+            ////writer.Write(" ");
+            //if (this.Operands != null)
+            //{
+            //    writer.Write((Convert.ToString(this.Opcode,2)));
+            //    writer.Write(" ");
+            //    for (int i = 0; i < this.Operands.Length; i++)
+            //    {
+            //        foreach (byte b in this.Operands[i])
+            //        {
+            //            writer.Write(b);
+            //            writer.Write(" ");
+            //        }
+            //        //writer.Write(",");
+            //    }
+            //    //writer.WriteLine();
+            //}
+            //else
+            //{
+            //    writer.Write((Convert.ToString(this.Opcode, 2)));
+            //    //writer.WriteLine();
+            //}
+            //writer.Flush();
+            //writer.Close();
+            //writer.Dispose();
             return;
         }
     }

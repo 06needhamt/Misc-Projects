@@ -48,6 +48,7 @@
     <Compile Include="ASTBranch.cs" />
     <Compile Include="Branch.cs" />
     <Compile Include="DefineTest.cs" />
+    <Compile Include="ELFFile.cs" />
     <Compile Include="EnumAccessModifiers.cs" />
     <Compile Include="EnumKeywords.cs" />
     <Compile Include="EnumOpcodes.cs" />
