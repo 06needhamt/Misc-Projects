@@ -18,9 +18,9 @@ namespace CSharpToNative
         {
             bool[] nullornot = new bool[10];
             // DefineTest.run();
-            Instruction ins = new Instruction(15, new string[] { "eax", "ecx" });
+            //Instruction ins = new Instruction(15, new string[] { "eax", "ecx" });
             //ins.printAssemblyInstruction();
-            ins.PrintBinaryInstruction();
+            //ins.PrintBinaryInstruction();
             //Environment.Exit(0);
              //outloc = args[0] + ".lex";
             //Console.WriteLine(EnumKeywords.PUBLIC.ToString());
